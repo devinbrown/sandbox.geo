@@ -7,7 +7,7 @@
   this.CATMAP = CATMAP;
 
   CATMAP.load_map = function(map_div_name) {
-    var boulder, center, color, colors, controls, geoProj, ghyb, gmap, gsat, gterr, kmlDir, map, mercProj, ngp, osm, salina, styles;
+    var boulder, center, color, colors, controls, geoProj, ghyb, gmap, gsat, gterr, kmlDir, map, mercProj, ngp, osm, salina, sgp, styles;
 
     geoProj = new OpenLayers.Projection("EPSG:4326");
     mercProj = new OpenLayers.Projection("EPSG:900913");
@@ -62,6 +62,12 @@
     });
     map.addLayers([ngp]);
     ngp.setOpacity(.5);
+    sgp = new OpenLayers.Layer.Image('1km_SGP_ch1_vis.jpg', 'img/ops.GOES-13.201305071632.1km_SGP_ch1_vis.jpg', new OpenLayers.Bounds(-107.4267, 26.8635, -90.8137, 40.6155).transform(geoProj, mercProj), new OpenLayers.Size(666, 693), {
+      isBaseLayer: false,
+      alwaysInRange: true
+    });
+    map.addLayers([sgp]);
+    sgp.setOpacity(.5);
     return map;
   };
 
