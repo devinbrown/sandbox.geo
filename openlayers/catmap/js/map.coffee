@@ -23,7 +23,7 @@ CATMAP.load_map = (map_div_name) ->
                                             # display lat/lon of mouse's map position in lower-right corner
     new OpenLayers.Control.OverviewMap      # toggled, lower-right corner
     new OpenLayers.Control.KeyboardDefaults # +/- zoom in/out, move map via arrow keys
-    # new OpenLayers.Control.Zoom 
+    # new OpenLayers.Control.Zoom
     new OpenLayers.Control.LayerSwitcher    # toggled, upper-right corner, base-layer select, and vector and image checkboxes
     new OpenLayers.Control.Navigation ]     # move map, zoom in/out w/ via mouse input
 
@@ -104,7 +104,7 @@ CATMAP.load_map = (map_div_name) ->
 
   # lineFeature = new OpenLayers.Feature.Vector(line, null, style)
   # lineLayer.addFeatures( [ lineFeature ])
-  
+
   # map.addLayer lineLayer
 
   # kmlSelector = new OpenLayers.Control.SelectFeature kmlLayers
@@ -120,7 +120,8 @@ CATMAP.load_map = (map_div_name) ->
   goesImageLayer = new OpenLayers.Layer.Image(
     'goes-13-western-us-spherical-mercator.jpg',
     'img/goes-13-western-us-spherical-mercator.jpg',
-    new OpenLayers.Bounds(-125.4483, 27.6074, -89.5877, 49.6830).transform(geoProj, mercProj),
+    # (minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude)
+    new OpenLayers.Bounds(-125.4483, 27.5499, -89.5097, 49.68).transform(geoProj, mercProj),
     new OpenLayers.Size(866,693),
       isBaseLayer: false
       alwaysInRange: true
@@ -140,7 +141,7 @@ CATMAP.load_map = (map_div_name) ->
   #   )
   # map.addLayers [imageLayer]
   # imageLayer.setOpacity .5
-  # 
+
   # imageLayer2 = new OpenLayers.Layer.Image(
   #   'research.CHILL.201106140005.DBZ.png',
   #   'http://catalog.eol.ucar.edu/dc3_2011/research/chill/20110614/research.CHILL.201106140005.DBZ.png',
@@ -149,7 +150,7 @@ CATMAP.load_map = (map_div_name) ->
   #     isBaseLayer: false
   #     alwaysInRange: true
   # )
-  # 
+
   # imageLayer3 = new OpenLayers.Layer.Image(
   #   'research.CHILL.201106140005.ZDR.png',
   #   'http://catalog.eol.ucar.edu/dc3_2011/research/chill/20110614/research.CHILL.201106140005.ZDR.png',
@@ -158,7 +159,7 @@ CATMAP.load_map = (map_div_name) ->
   #     isBaseLayer: false
   #     alwaysInRange: true
   # )
-  # 
+
   # imageLayer4 = new OpenLayers.Layer.Image(
   #   'research.CHILL.201106140005.VEL.png',
   #   'http://catalog.eol.ucar.edu/dc3_2011/research/chill/20110614/research.CHILL.201106140005.VEL.png',
@@ -167,7 +168,7 @@ CATMAP.load_map = (map_div_name) ->
   #     isBaseLayer: false
   #     alwaysInRange: true
   # )
-  # 
+
   # imageLayer5 = new OpenLayers.Layer.Image(
   #   'radar.NEXRAD.mosaic',
   #   'http://catalog.eol.ucar.edu//dc3_2011/radar/nexrad_mosaic/20110629/radar.NEXRAD_mosaic.201106292138.N0R_hires_radaronly.gif',
@@ -176,7 +177,21 @@ CATMAP.load_map = (map_div_name) ->
   #     isBaseLayer: false
   #     alwaysInRange: true
   # )
-  # 
+
+  # nex_mosaic = new OpenLayers.Layer.Image(
+  #   'radar.NEXRAD.mosaic',
+  #   'img/ops.NEXRAD_mosaic.201305071638.N0R_hires_map.gif',
+  #   # (minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude)
+  #   # (left, bottom, right, top)
+  #   new OpenLayers.Bounds(-127.620375523875420, 21.652538062803, -66.517937876818, 50.406626367301044).transform(geoProj, mercProj),
+  #   new OpenLayers.Size(3400, 1600),
+  #     isBaseLayer: false
+  #     alwaysInRange: true
+  # )
+
+  # map.addLayers [nex_mosaic]
+  # nex_mosaic.setOpacity .5
+
   # map.addLayers [imageLayer2, imageLayer3, imageLayer4, imageLayer5]
   # imageLayer2.setOpacity .5
   # imageLayer3.setOpacity .5
@@ -195,7 +210,7 @@ onFeatureSelect = (event) ->
 
   console.log feature.attributes.description
 
-  popup = new OpenLayers.Popup.FramedCloud "chickenXXX", 
+  popup = new OpenLayers.Popup.FramedCloud "chickenXXX",
     feature.geometry.getBounds().getCenterLonLat()
     new OpenLayers.Size(100,100)
     content

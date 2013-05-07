@@ -56,7 +56,7 @@
       return _results;
     })();
     kmlDir = "kml";
-    goesImageLayer = new OpenLayers.Layer.Image('goes-13-western-us-spherical-mercator.jpg', 'img/goes-13-western-us-spherical-mercator.jpg', new OpenLayers.Bounds(-125.4483, 27.6074, -89.5877, 49.6830).transform(geoProj, mercProj), new OpenLayers.Size(866, 693), {
+    goesImageLayer = new OpenLayers.Layer.Image('goes-13-western-us-spherical-mercator.jpg', 'img/goes-13-western-us-spherical-mercator.jpg', new OpenLayers.Bounds(-125.4483, 27.5499, -89.5097, 49.68).transform(geoProj, mercProj), new OpenLayers.Size(866, 693), {
       isBaseLayer: false,
       alwaysInRange: true
     });
