@@ -117,19 +117,42 @@ CATMAP.load_map = (map_div_name) ->
   #     E: -89.5877
   #     W: -125.4483
 
-  goesImageLayer = new OpenLayers.Layer.Image(
-    'goes-13-western-us-spherical-mercator.jpg',
-    'img/goes-13-western-us-spherical-mercator.jpg',
+  # goesImageLayer = new OpenLayers.Layer.Image(
+  #   'goes-13-western-us-spherical-mercator.jpg',
+  #   'img/goes-13-western-us-spherical-mercator.jpg',
+  #   # (minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude)
+  #   new OpenLayers.Bounds(-125.4483, 27.5499, -89.5097, 49.68).transform(geoProj, mercProj),
+  #   new OpenLayers.Size(866,693),
+  #     isBaseLayer: false
+  #     alwaysInRange: true
+  #   )
+  # map.addLayers [goesImageLayer]
+  # goesImageLayer.setOpacity .5
+
+  # 1km_NGP_ch1_vis.jpg
+  ngp = new OpenLayers.Layer.Image(
+    '1km_NGP_ch1_vis.jpg',
+    'img/ops.GOES-13.201305071632.1km_NGP_ch1_vis.jpg',
     # (minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude)
-    new OpenLayers.Bounds(-125.4483, 27.5499, -89.5097, 49.68).transform(geoProj, mercProj),
-    new OpenLayers.Size(866,693),
+    new OpenLayers.Bounds(-108.7010, 33.6552, -90.4855, 47.4165).transform(geoProj, mercProj),
+    new OpenLayers.Size(1024,1024),
       isBaseLayer: false
       alwaysInRange: true
     )
-  map.addLayers [goesImageLayer]
-  goesImageLayer.setOpacity .5
+  map.addLayers [ngp]
+  ngp.setOpacity .5
 
-
+  # sgp = new OpenLayers.Layer.Image(
+  #   '1km_NGP_ch1_vis.jpg',
+  #   'img/ops.GOES-13.201305071632.1km_SGP_ch1_vis.jpg',
+  #   # (minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude)
+  #   new OpenLayers.Bounds(-125.4483, 27.5499, -89.5097, 49.68).transform(geoProj, mercProj),
+  #   new OpenLayers.Size(666,693),
+  #     isBaseLayer: false
+  #     alwaysInRange: true
+  #   )
+  # map.addLayers [sgp]
+  # sgp.setOpacity .5
 
   # imageLayer = new OpenLayers.Layer.Image(
   #   'business cat',
@@ -178,19 +201,20 @@ CATMAP.load_map = (map_div_name) ->
   #     alwaysInRange: true
   # )
 
-  nex_mosaic = new OpenLayers.Layer.Image(
-    'radar.NEXRAD.mosaic',
-    'img/ops.NEXRAD_mosaic.201305071638.N0R_hires_map.gif',
-    # (minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude)
-    # (left, bottom, right, top)
-    new OpenLayers.Bounds(-127.7000, 19.9000, -66.217937876818, 50.2000).transform(geoProj, mercProj),
-    new OpenLayers.Size(3400, 1600),
-      isBaseLayer: false
-      alwaysInRange: true
-  )
+  # NEXRAD
+  # nex_mosaic = new OpenLayers.Layer.Image(
+  #   'radar.NEXRAD.mosaic',
+  #   'img/ops.NEXRAD_mosaic.201305071638.N0R_hires_map.gif',
+  #   # (minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude)
+  #   # (left, bottom, right, top)
+  #   new OpenLayers.Bounds(-127.7000, 19.9000, -66.217937876818, 50.2000).transform(geoProj, mercProj),
+  #   new OpenLayers.Size(3400, 1600),
+  #     isBaseLayer: false
+  #     alwaysInRange: true
+  # )
 
-  map.addLayers [nex_mosaic]
-  nex_mosaic.setOpacity .5
+  # map.addLayers [nex_mosaic]
+  # nex_mosaic.setOpacity .5
 
   # map.addLayers [imageLayer2, imageLayer3, imageLayer4, imageLayer5]
   # imageLayer2.setOpacity .5
