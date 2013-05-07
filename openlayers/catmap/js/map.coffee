@@ -142,17 +142,17 @@ CATMAP.load_map = (map_div_name) ->
   map.addLayers [ngp]
   ngp.setOpacity .5
 
-  # sgp = new OpenLayers.Layer.Image(
-  #   '1km_NGP_ch1_vis.jpg',
-  #   'img/ops.GOES-13.201305071632.1km_SGP_ch1_vis.jpg',
-  #   # (minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude)
-  #   new OpenLayers.Bounds(-125.4483, 27.5499, -89.5097, 49.68).transform(geoProj, mercProj),
-  #   new OpenLayers.Size(666,693),
-  #     isBaseLayer: false
-  #     alwaysInRange: true
-  #   )
-  # map.addLayers [sgp]
-  # sgp.setOpacity .5
+  sgp = new OpenLayers.Layer.Image(
+    '1km_SGP_ch1_vis.jpg',
+    'img/ops.GOES-13.201305071632.1km_SGP_ch1_vis.jpg',
+    # (minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude)
+    new OpenLayers.Bounds(-107.4267, 26.8635, -90.8137, 40.6155).transform(geoProj, mercProj),
+    new OpenLayers.Size(666,693),
+      isBaseLayer: false
+      alwaysInRange: true
+    )
+  map.addLayers [sgp]
+  sgp.setOpacity .5
 
   # imageLayer = new OpenLayers.Layer.Image(
   #   'business cat',
