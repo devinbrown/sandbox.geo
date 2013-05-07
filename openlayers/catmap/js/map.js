@@ -7,7 +7,7 @@
   this.CATMAP = CATMAP;
 
   CATMAP.load_map = function(map_div_name) {
-    var boulder, center, color, colors, controls, geoProj, ghyb, gmap, goesImageLayer, gsat, gterr, kmlDir, map, mercProj, osm, salina, styles;
+    var boulder, center, color, colors, controls, geoProj, ghyb, gmap, goesImageLayer, gsat, gterr, kmlDir, map, mercProj, nex_mosaic, osm, salina, styles;
 
     geoProj = new OpenLayers.Projection("EPSG:4326");
     mercProj = new OpenLayers.Projection("EPSG:900913");
@@ -62,6 +62,12 @@
     });
     map.addLayers([goesImageLayer]);
     goesImageLayer.setOpacity(.5);
+    nex_mosaic = new OpenLayers.Layer.Image('radar.NEXRAD.mosaic', 'img/ops.NEXRAD_mosaic.201305071638.N0R_hires_map.gif', new OpenLayers.Bounds(-127.7000, 19.9000, -66.217937876818, 50.2000).transform(geoProj, mercProj), new OpenLayers.Size(3400, 1600), {
+      isBaseLayer: false,
+      alwaysInRange: true
+    });
+    map.addLayers([nex_mosaic]);
+    nex_mosaic.setOpacity(.5);
     return map;
   };
 
