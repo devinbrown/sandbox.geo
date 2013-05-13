@@ -7,7 +7,7 @@
   this.CATMAP = CATMAP;
 
   CATMAP.load_map = function(map_div_name) {
-    var boulder, center, color, colors, controls, geoProj, ghyb, gmap, gsat, gterr, kmlDir, map, mercProj, nex_mosaic2, osm, salina, styles;
+    var boulder, center, color, colors, controls, geoProj, ghyb, gmap, gsat, gterr, kmlDir, map, mercProj, nex_mosaic, nex_mosaic2, osm, salina, styles;
 
     geoProj = new OpenLayers.Projection("EPSG:4326");
     mercProj = new OpenLayers.Projection("EPSG:900913");
@@ -56,6 +56,12 @@
       return _results;
     })();
     kmlDir = "kml";
+    nex_mosaic = new OpenLayers.Layer.Image('radar.NEXRAD.mosaic 1', 'img/map_radar_1.gif', new OpenLayers.Bounds(-127.650375523875420, 21.682538062803, -66.527937876818, 50.436626367301044).transform(geoProj, mercProj), new OpenLayers.Size(3400, 1600), {
+      isBaseLayer: false,
+      alwaysInRange: true
+    });
+    map.addLayers([nex_mosaic]);
+    nex_mosaic.setOpacity(.5);
     nex_mosaic2 = new OpenLayers.Layer.Image('radar.NEXRAD.mosaic 2', 'img/map_radar_2.png', new OpenLayers.Bounds(-127.650375523875420, 21.682538062803, -66.527937876818, 50.436626367301044).transform(geoProj, mercProj), new OpenLayers.Size(3400, 1600), {
       isBaseLayer: false,
       alwaysInRange: true
