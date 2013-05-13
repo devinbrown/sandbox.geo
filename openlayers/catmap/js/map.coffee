@@ -129,30 +129,33 @@ CATMAP.load_map = (map_div_name) ->
   # map.addLayers [goesImageLayer]
   # goesImageLayer.setOpacity .5
 
-  # 1km_NGP_ch1_vis.jpg
-  ngp = new OpenLayers.Layer.Image(
-    '1km_NGP_ch1_vis.jpg',
-    'img/ops.GOES-13.201305071632.1km_NGP_ch1_vis.jpg',
-    # (minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude)
-    new OpenLayers.Bounds(-108.7010, 33.6552, -90.4855, 47.4165).transform(geoProj, mercProj),
-    new OpenLayers.Size(1024,1024),
-      isBaseLayer: false
-      alwaysInRange: true
-    )
-  map.addLayers [ngp]
-  ngp.setOpacity .5
+  # # THIS ONE!!
+  # # 1km_NGP_ch1_vis.jpg
+  # ngp = new OpenLayers.Layer.Image(
+  #   '1km_NGP_ch1_vis.jpg',
+  #   'img/ops.GOES-13.201305071632.1km_NGP_ch1_vis.jpg',
+  #   # (minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude)
+  #   new OpenLayers.Bounds(-108.7010, 33.6552, -90.4855, 47.4165).transform(geoProj, mercProj),
+  #   new OpenLayers.Size(1024,1024),
+  #     isBaseLayer: false
+  #     alwaysInRange: true
+  #   )
+  # map.addLayers [ngp]
+  # ngp.setOpacity .5
 
-  sgp = new OpenLayers.Layer.Image(
-    '1km_SGP_ch1_vis.jpg',
-    'img/ops.GOES-13.201305071632.1km_SGP_ch1_vis.jpg',
-    # (minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude)
-    new OpenLayers.Bounds(-107.4267, 26.8635, -90.8137, 40.6155).transform(geoProj, mercProj),
-    new OpenLayers.Size(666,693),
-      isBaseLayer: false
-      alwaysInRange: true
-    )
-  map.addLayers [sgp]
-  sgp.setOpacity .5
+  # # THIS ONE!!
+  # # 1km_SGP_ch1_vis
+  # sgp = new OpenLayers.Layer.Image(
+  #   '1km_SGP_ch1_vis.jpg',
+  #   'img/ops.GOES-13.201305071632.1km_SGP_ch1_vis.jpg',
+  #   # (minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude)
+  #   new OpenLayers.Bounds(-107.4267, 26.8635, -90.8137, 40.6155).transform(geoProj, mercProj),
+  #   new OpenLayers.Size(666,693),
+  #     isBaseLayer: false
+  #     alwaysInRange: true
+  #   )
+  # map.addLayers [sgp]
+  # sgp.setOpacity .5
 
   # imageLayer = new OpenLayers.Layer.Image(
   #   'business cat',
@@ -202,25 +205,34 @@ CATMAP.load_map = (map_div_name) ->
   # )
 
   # NEXRAD
-  # nex_mosaic = new OpenLayers.Layer.Image(
-  #   'radar.NEXRAD.mosaic',
-  #   'img/ops.NEXRAD_mosaic.201305071638.N0R_hires_map.gif',
-  #   # (minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude)
-  #   # (left, bottom, right, top)
-  #   new OpenLayers.Bounds(-127.7000, 19.9000, -66.217937876818, 50.2000).transform(geoProj, mercProj),
-  #   new OpenLayers.Size(3400, 1600),
-  #     isBaseLayer: false
-  #     alwaysInRange: true
-  # )
+  nex_mosaic = new OpenLayers.Layer.Image(
+    'radar.NEXRAD.mosaic',
 
-  # map.addLayers [nex_mosaic]
-  # nex_mosaic.setOpacity .5
+    # NOTE: original image (doesn't fit)
+    # 'img/ops.NEXRAD_mosaic.201305071638.N0R_hires_map.gif',
 
-  # map.addLayers [imageLayer2, imageLayer3, imageLayer4, imageLayer5]
-  # imageLayer2.setOpacity .5
-  # imageLayer3.setOpacity .5
-  # imageLayer4.setOpacity .5
-  # imageLayer5.setOpacity .5
+    # NOTE: second image (does it fit?)
+    'img/map_radar_1.gif',
+
+    # NOTE: third image (does it fit?)
+    # 'img/map_radar_1.gif',
+
+    # (minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude)
+    # left bottom top right
+    new OpenLayers.Bounds(-127.220375523875420, 21.452538062803, -66.717937876818, 50.406626367301044).transform(geoProj, mercProj),
+    new OpenLayers.Size(3400, 1600),
+      isBaseLayer: false
+      alwaysInRange: true
+  )
+
+  map.addLayers [nex_mosaic]
+  nex_mosaic.setOpacity .5
+
+  map.addLayers [imageLayer2, imageLayer3, imageLayer4, imageLayer5]
+  imageLayer2.setOpacity .5
+  imageLayer3.setOpacity .5
+  imageLayer4.setOpacity .5
+  imageLayer5.setOpacity .5
 
 
   return map

@@ -7,7 +7,7 @@
   this.CATMAP = CATMAP;
 
   CATMAP.load_map = function(map_div_name) {
-    var boulder, center, color, colors, controls, geoProj, ghyb, gmap, gsat, gterr, kmlDir, map, mercProj, ngp, osm, salina, sgp, styles;
+    var boulder, center, color, colors, controls, geoProj, ghyb, gmap, gsat, gterr, kmlDir, map, mercProj, nex_mosaic, osm, salina, styles;
 
     geoProj = new OpenLayers.Projection("EPSG:4326");
     mercProj = new OpenLayers.Projection("EPSG:900913");
@@ -56,18 +56,17 @@
       return _results;
     })();
     kmlDir = "kml";
-    ngp = new OpenLayers.Layer.Image('1km_NGP_ch1_vis.jpg', 'img/ops.GOES-13.201305071632.1km_NGP_ch1_vis.jpg', new OpenLayers.Bounds(-108.7010, 33.6552, -90.4855, 47.4165).transform(geoProj, mercProj), new OpenLayers.Size(1024, 1024), {
+    nex_mosaic = new OpenLayers.Layer.Image('radar.NEXRAD.mosaic', 'img/map_radar_1.gif', new OpenLayers.Bounds(-127.220375523875420, 21.452538062803, -66.717937876818, 50.406626367301044).transform(geoProj, mercProj), new OpenLayers.Size(3400, 1600), {
       isBaseLayer: false,
       alwaysInRange: true
     });
-    map.addLayers([ngp]);
-    ngp.setOpacity(.5);
-    sgp = new OpenLayers.Layer.Image('1km_SGP_ch1_vis.jpg', 'img/ops.GOES-13.201305071632.1km_SGP_ch1_vis.jpg', new OpenLayers.Bounds(-107.4267, 26.8635, -90.8137, 40.6155).transform(geoProj, mercProj), new OpenLayers.Size(666, 693), {
-      isBaseLayer: false,
-      alwaysInRange: true
-    });
-    map.addLayers([sgp]);
-    sgp.setOpacity(.5);
+    map.addLayers([nex_mosaic]);
+    nex_mosaic.setOpacity(.5);
+    map.addLayers([imageLayer2, imageLayer3, imageLayer4, imageLayer5]);
+    imageLayer2.setOpacity(.5);
+    imageLayer3.setOpacity(.5);
+    imageLayer4.setOpacity(.5);
+    imageLayer5.setOpacity(.5);
     return map;
   };
 
