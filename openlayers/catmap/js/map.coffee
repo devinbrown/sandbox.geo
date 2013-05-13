@@ -228,11 +228,11 @@ CATMAP.load_map = (map_div_name) ->
   map.addLayers [nex_mosaic]
   nex_mosaic.setOpacity .5
 
-  map.addLayers [imageLayer2, imageLayer3, imageLayer4, imageLayer5]
-  imageLayer2.setOpacity .5
-  imageLayer3.setOpacity .5
-  imageLayer4.setOpacity .5
-  imageLayer5.setOpacity .5
+  # map.addLayers [imageLayer2, imageLayer3, imageLayer4, imageLayer5]
+  # imageLayer2.setOpacity .5
+  # imageLayer3.setOpacity .5
+  # imageLayer4.setOpacity .5
+  # imageLayer5.setOpacity .5
 
 
   return map
