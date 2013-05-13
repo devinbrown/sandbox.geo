@@ -212,10 +212,10 @@ CATMAP.load_map = (map_div_name) ->
     # 'img/ops.NEXRAD_mosaic.201305071638.N0R_hires_map.gif',
 
     # NOTE: second image (does it fit?)
-    # 'img/map_radar_1.gif',
+    'img/map_radar_1.gif',
 
     # NOTE: third image (does it fit?)
-    'img/map_radar_2.gif',
+    # 'img/map_radar_2.gif',
 
     # (minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude)
     # left bottom top right

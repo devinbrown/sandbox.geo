@@ -56,7 +56,7 @@
       return _results;
     })();
     kmlDir = "kml";
-    nex_mosaic = new OpenLayers.Layer.Image('radar.NEXRAD.mosaic', 'img/map_radar_2.gif', new OpenLayers.Bounds(-127.220375523875420, 21.452538062803, -66.717937876818, 50.406626367301044).transform(geoProj, mercProj), new OpenLayers.Size(3400, 1600), {
+    nex_mosaic = new OpenLayers.Layer.Image('radar.NEXRAD.mosaic', 'img/map_radar_1.gif', new OpenLayers.Bounds(-127.220375523875420, 21.452538062803, -66.717937876818, 50.406626367301044).transform(geoProj, mercProj), new OpenLayers.Size(3400, 1600), {
       isBaseLayer: false,
       alwaysInRange: true
     });
