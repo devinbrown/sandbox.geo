@@ -204,20 +204,20 @@ CATMAP.load_map = (map_div_name) ->
   #     alwaysInRange: true
   # )
 
-  # # NEXRAD
-  # nex_mosaic = new OpenLayers.Layer.Image(
-  #   'radar.NEXRAD.mosaic 1',
-  #   'img/map_radar_1.gif',
-  #   # (minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude)
-  #   # left bottom right top
-  #   new OpenLayers.Bounds(-127.650375523875420, 21.662538062803, -66.527937876818, 50.436626367301044).transform(geoProj, mercProj),
-  #   new OpenLayers.Size(3400, 1600),
-  #     isBaseLayer: false
-  #     alwaysInRange: true
-  # )
+  # NEXRAD
+  nex_mosaic = new OpenLayers.Layer.Image(
+    'radar.NEXRAD.mosaic 1',
+    'img/map_radar_1.gif',
+    # (minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude)
+    # left bottom right top
+    new OpenLayers.Bounds(-127.650375523875420, 21.682538062803, -66.527937876818, 50.436626367301044).transform(geoProj, mercProj),
+    new OpenLayers.Size(3400, 1600),
+      isBaseLayer: false
+      alwaysInRange: true
+  )
 
-  # map.addLayers [nex_mosaic]
-  # nex_mosaic.setOpacity .5
+  map.addLayers [nex_mosaic]
+  nex_mosaic.setOpacity .5
 
     # NEXRAD
   nex_mosaic2 = new OpenLayers.Layer.Image(
