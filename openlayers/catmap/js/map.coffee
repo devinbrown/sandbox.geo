@@ -212,14 +212,14 @@ CATMAP.load_map = (map_div_name) ->
     # 'img/ops.NEXRAD_mosaic.201305071638.N0R_hires_map.gif',
 
     # NOTE: second image (does it fit?)
-    'img/map_radar_1.gif',
+    # 'img/map_radar_1.gif',
 
     # NOTE: third image (does it fit?)
-    # 'img/map_radar_2.gif',
+    'img/map_radar_2.png',
 
     # (minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude)
-    # left bottom top right
-    new OpenLayers.Bounds(-127.220375523875420, 21.452538062803, -66.717937876818, 50.406626367301044).transform(geoProj, mercProj),
+    # left bottom right top
+    new OpenLayers.Bounds(-127.650375523875420, 21.652538062803, -66.577937876818, 50.436626367301044).transform(geoProj, mercProj),
     new OpenLayers.Size(3400, 1600),
       isBaseLayer: false
       alwaysInRange: true
